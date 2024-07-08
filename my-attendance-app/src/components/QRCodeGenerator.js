@@ -2,8 +2,8 @@ import React from "react";
 import QRCode from "qrcode.react";
 
 const QRCodeGenerator = ({ sessionId }) => {
-  const localIP = "172.22.13.150"; // Replace with your WSL IP address
-  const url = `http://${localIP}:3000/session/${sessionId}`;
+  const vercelURL = "https://your-vercel-url.vercel.app"; // Replace with your Vercel URL
+  const url = `${vercelURL}/session/${sessionId}`;
 
   return (
     <div>
