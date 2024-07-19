@@ -1,25 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
 
 const IndexDropdown = () => {
-  // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
+  const btnDropdownRef = useRef(null);
+  const popoverDropdownRef = useRef(null);
+
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-start",
     });
     setDropdownPopoverShow(true);
   };
+
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
+  const handleClickOutside = (event) => {
+    if (
+      popoverDropdownRef.current &&
+      !popoverDropdownRef.current.contains(event.target) &&
+      btnDropdownRef.current &&
+      !btnDropdownRef.current.contains(event.target)
+    ) {
+      closeDropdownPopover();
+    }
+  };
+
+  useEffect(() => {
+    if (dropdownPopoverShow) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownPopoverShow]);
+
   return (
     <>
       <a
-        className="hover:text-blueGray-500 text-blueGray-200 bg-lightBlue-500 rounded px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+        className="hover:text-blueGray-500 text-blueGray-200 bg-lightBlue-600 rounded px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -33,31 +58,24 @@ const IndexDropdown = () => {
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+          "text-base z-50 float-left bg-lightBlue-600 bg-opacity-80 py-3 list-none text-left rounded shadow-2xl min-w-48"
         }
       >
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-          }
-        >
-          Admin Layout
-        </span>
         <Link
           to="/admin/dashboard"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          className="text-md py-2 border-b border-white px-4 font-normal block w-full whitespace-nowrap text-white hover:text-blueGray-500"
         >
           Dashboard
         </Link>
         <Link
           to="/admin/settings"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          className="text-md py-2 border-b border-white px-4 font-normal block w-full whitespace-nowrap text-white hover:text-blueGray-500"
         >
           Settings
         </Link>
         <Link
           to="/profile"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          className="text-md py-2 px-4 font-normal block w-full whitespace-nowrap text-white hover:text-blueGray-500"
         >
           Profile
         </Link>

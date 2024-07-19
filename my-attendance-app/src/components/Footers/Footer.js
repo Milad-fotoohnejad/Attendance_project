@@ -27,10 +27,10 @@ export default function Footer() {
             <div className="text-sm text-blueGray-500 font-semibold py-1">
               Copyright © {new Date().getFullYear()} Atten:D{" "}
               <a
-                href="https://www.creative-tim.com?ref=nr-footer"
+                href=""
                 className="text-blueGray-500 hover:text-blueGray-800"
               >
-                DevNest Studio
+                by DevNest Studio
               </a>
             </div>
           </div>

@@ -41,7 +41,7 @@ export default function CardProfile() {
             </div>
           </div>
           <div className="text-center mt-12">
-            <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+            <h3 className="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
               Jenna Stones
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
@@ -67,13 +67,6 @@ export default function CardProfile() {
                   feel with a solid groove structure. An artist of considerable
                   range.
                 </p>
-                <a
-                  href="#pablo"
-                  className="font-normal text-lightBlue-500"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Show more
-                </a>
               </div>
             </div>
           </div>
