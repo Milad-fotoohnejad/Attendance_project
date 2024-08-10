@@ -1,55 +1,46 @@
 /*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
 // components
 
-import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
-
 export default function Navbar(props) {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 bg-white bg-opacity-20 shadow-xl">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <Link
+      <style jsx>{`
+        @keyframes rainbow-text-animation {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .rainbow-text {
+          background: linear-gradient(
+            270deg,
+            #ffafbd,
+            #ffc3a0,
+            #fffcab,
+            #c9ffbf,
+            #a0c4ff,
+            #d4a0ff,
+            #ffafbd
+          );
+          background-size: 400% 400%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: rainbow-text-animation 10s ease-in-out infinite;
+        }
+      `}</style>
+      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 shadow-xl">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-center">
+          <div className="w-full relative flex justify-center lg:w-auto lg:static lg:block lg:justify-start">
+            <div
               to="/"
-              className="text-blueGray-100 text-2xl font-thin leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+              className="rainbow-text text-4xl font-thin leading-relaxed inline-block py-2 whitespace-nowrap uppercase"
             >
               Atten:D
-            </Link>
-            <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i className="fas fa-bars"></i>
-            </button>
-          </div>
-          <div
-            className={
-              "lg:flex flex-grow items-center lg:shadow-none" +
-              (navbarOpen ? " block" : " hidden")
-            }
-            id="example-navbar-warning"
-          >
-
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                <IndexDropdown />
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className="bg-red-400 hover:text-blueGray-300 text-xs font-bold uppercase px-4 py-2 rounded outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-
-                >
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
-                </a>
-              </li>
-            </ul>
+            </div>
           </div>
         </div>
       </nav>
