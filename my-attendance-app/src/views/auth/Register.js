@@ -27,17 +27,17 @@ export default function Register() {
   return (
     <>
       <div className="container mx-auto px-4 h-full">
-        <div className="flex content-center items-center justify-center h-full">
-          <div className="w-full lg:w-6/12 px-4">
+        <div className="flex justify-center">
+          <div className="w-full lg:w-4/12 mt-32 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blueGray-200">
-            <div className="text-center w-full mt-5">
-                <div className="text-center w-full mb-4">
-                  <large>Please log in with credentials</large>
-                </div>
-                <div className="flex w-full justify-center">
+              <div className="text-center w-full mt-5">
+                <h6 className="text-blueGray-600 text-md mb-3 font-normal">
+                  Please log in with credentials
+                </h6>
+                <div className="flex justify-center">
                   <Link
                     to="/auth/login"
-                    className="w-full bg-emerald-300 hover:text-blueGray-300 text-lg font-thin uppercase px-4 py-2 rounded mb-3 shadow-xl text-center"
+                    className="bg-blueGray-800 w-three-quarter text-white hover:text-emerald-200 text-md font-normal uppercase px-4 py-2 rounded mb-3 text-center"
                   >
                     Log in
                   </Link>
@@ -46,7 +46,9 @@ export default function Register() {
               <hr className="my-4 border-blueGray-300" />
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-center mb-4">
-                  <large>Please sign up with credentials</large>
+                  <h6 className="text-blueGray-600 text-md mb-3 font-normal">
+                    Or <br/> Please sign up here using credentials
+                  </h6>
                 </div>
                 <form onSubmit={handleSignUp}>
                   <div className="relative w-full mb-3">
@@ -54,7 +56,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Email
                     </label>
                     <input
                       type="email"
@@ -70,7 +71,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Password
                     </label>
                     <input
                       type="password"
@@ -86,7 +86,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-username"
                     >
-                      Username
                     </label>
                     <input
                       type="text"
@@ -104,7 +103,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-first-name"
                     >
-                      First Name
                     </label>
                     <input
                       type="text"
@@ -122,7 +120,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-last-name"
                     >
-                      Last Name
                     </label>
                     <input
                       type="text"
@@ -140,7 +137,6 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-address"
                     >
-                      Location
                     </label>
                     <input
                       type="text"
@@ -164,7 +160,7 @@ export default function Register() {
                         I agree with the{" "}
                         <a
                           href="#pablo"
-                          className="text-lightBlue-500"
+                          className="text-lightBlue-600 hover:text-emerald-300"
                           onClick={(e) => e.preventDefault()}
                         >
                           Privacy Policy
@@ -175,7 +171,7 @@ export default function Register() {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-lightBlue-300 text-blueGray-600 active:bg-blueGray-600 hover:text-blueGray-300 text-sm font-bold uppercase px-6 py-3 rounded shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="bg-blueGray-800 text-white hover:text-emerald-200 text-sm font-normal uppercase px-6 py-3 rounded shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
                     >
                       Create Account

@@ -32,12 +32,12 @@ export default function Navbar(props) {
           animation: rainbow-text-animation 10s ease-in-out infinite;
         }
       `}</style>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 shadow-xl">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-center">
+      <nav className="top-0 fixed z-50 w-full flex flex-wrap">
+        <div className="container px-4 mx-auto flex flex-wrap mt-2">
           <div className="w-full relative flex justify-center lg:w-auto lg:static lg:block lg:justify-start">
             <div
               to="/"
-              className="rainbow-text text-4xl font-thin leading-relaxed inline-block py-2 whitespace-nowrap uppercase"
+              className="rainbow-text text-4xl font-thin leading-relaxed inline-block py-2 whitespace-nowrap"
             >
               Atten:D
             </div>

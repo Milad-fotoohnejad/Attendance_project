@@ -1276,6 +1276,41 @@ select {
   background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
 }
 
+.active\:bg-emerald-100:active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(214, 250, 225, var(--tw-bg-opacity));
+}
+
+.active\:bg-emerald-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+
+.active\:bg-emerald-300:active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(102, 211, 159, var(--tw-bg-opacity));
+}
+
+.active\:bg-emerald-400:active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
+
+.hover\:bg-emerald-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(214, 250, 225, var(--tw-bg-opacity));
+}
+
+.hover\:bg-emerald-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+
+.hover\:bg-emerald-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(102, 211, 159, var(--tw-bg-opacity));
+}
+
 .bg-center {
   background-position: center;
 }
@@ -2509,6 +2544,21 @@ select {
   color: rgba(30, 41, 59, var(--tw-text-opacity));
 }
 
+.hover\:text-emerald-100:hover {
+  --tw-text-opacity: 1;
+  color: rgba(214, 250, 225, var(--tw-text-opacity));
+}
+
+.hover\:text-emerald-200:hover {
+  --tw-text-opacity: 1;
+  color: rgba(167, 243, 208, var(--tw-text-opacity));
+}
+
+.hover\:text-emerald-300:hover {
+  --tw-text-opacity: 1;
+  color: rgba(102, 211, 159, var(--tw-text-opacity));
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -2572,6 +2622,14 @@ select {
 
 .w-10\/12 {
   width: 83.333333%;
+}
+
+.w-mid {
+  width: 50%;
+}
+
+.w-three-quarter {
+  width: 75%;
 }
 
 .w-full {
