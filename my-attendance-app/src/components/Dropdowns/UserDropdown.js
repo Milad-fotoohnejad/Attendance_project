@@ -53,7 +53,7 @@ const UserDropdown = () => {
                 onClick={(e) => e.preventDefault()}
 
               >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+                <i className="fa-solid fa-arrow-right-from-bracket"></i> Log Out
               </a>
             </div>
             <div className="mb-2 ml-2">

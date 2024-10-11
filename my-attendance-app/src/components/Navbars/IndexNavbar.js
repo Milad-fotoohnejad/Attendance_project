@@ -46,7 +46,7 @@ export default function Navbar(props) {
                   onClick={(e) => e.preventDefault()}
 
                 >
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+                  <i className="fa-solid fa-arrow-right-from-bracket"></i> Log Out
                 </a>
               </li>
             </ul>

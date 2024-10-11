@@ -24,7 +24,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-blueGray-200 bg-red-400 mr-0 inline-block whitespace-nowrap rounded text-sm font-bold p-4 px-6 pt-2"
             to="/"
           >
-            <i class="fa-solid fa-house"></i> Back To HomePage
+            <i className="fa-solid fa-house"></i> Back To HomePage
 
           </Link>
           {/* User */}
