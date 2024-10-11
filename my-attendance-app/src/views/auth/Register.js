@@ -8,7 +8,6 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("instructors"); // Default role is instructor
   const [userData, setUserData] = useState({
-    username: "",
     firstName: "",
     lastName: "",
     location: "",
@@ -37,9 +36,9 @@ export default function Register() {
                 <div className="flex justify-center">
                   <Link
                     to="/auth/login"
-                    className="bg-blueGray-800 w-three-quarter text-white hover:text-emerald-200 text-md font-normal uppercase px-4 py-2 rounded mb-3 text-center"
+                    className="bg-blueGray-800 w-three-quarter text-white hover:text-emerald-200 text-md font-normal px-4 py-2 rounded mb-3 text-center"
                   >
-                    Log in
+                    Log In
                   </Link>
                 </div>
               </div>
@@ -81,22 +80,6 @@ export default function Register() {
                     />
                   </div>
 
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-username"
-                    >
-                    </label>
-                    <input
-                      type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Username"
-                      value={userData.username}
-                      onChange={(e) =>
-                        setUserData({ ...userData, username: e.target.value })
-                      }
-                    />
-                  </div>
 
                   <div className="relative w-full mb-3">
                     <label
@@ -171,7 +154,7 @@ export default function Register() {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray-800 text-white hover:text-emerald-200 text-sm font-normal uppercase px-6 py-3 rounded shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="bg-blueGray-800 text-white hover:text-emerald-200 text-md font-normal px-6 py-3 rounded shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
                     >
                       Create Account

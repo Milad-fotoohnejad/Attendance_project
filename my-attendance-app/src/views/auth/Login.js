@@ -30,14 +30,14 @@ export default function Login() {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
+                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
                     type="button"
                   >
                     <i className="fab fa-github mr-2"></i>
                     Github
                   </button>
                   <button
-                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
+                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
                     type="button"
                   >
                     <i className="fab fa-google mr-2"></i>
@@ -100,7 +100,7 @@ export default function Login() {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray-800 text-white active:bg-emerald-200 text-sm font-bold uppercase px-6 py-3 rounded hover:text-emerald-200 outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="bg-blueGray-800 text-white active:bg-emerald-200 text-sm font-bold px-6 py-3 rounded hover:text-emerald-200 outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
                     >
                       Sign In
