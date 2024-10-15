@@ -1,12 +1,16 @@
 /*eslint-disable*/
-import React from "react";
-import { Link } from "react-router-dom";
-import QRCodeGenerator from "components/QRCodeGenerator.js";
+import React, { useState } from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import SessionForm from "components/Forms/SessionForm.js"; // Assuming the form is here
 
 export default function Index() {
-  const sessionId = "example-session-id"; // Replace with dynamic session ID as needed
+  const [showForm, setShowForm] = useState(false); // Control the display of the form
+
+  // Function to handle showing the form when "Get Started" is clicked
+  const handleGetStartedClick = () => {
+    setShowForm(true);
+  };
 
   return (
     <>
@@ -15,16 +19,26 @@ export default function Index() {
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
-              <h2 className="font-semibold text-4xl text-blueGray-600">
-                QR Code for Session Attendance
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                Scan the QR code below to register your attendance for the
-                session.
-              </p>
-              <div className="mt-12">
-                <QRCodeGenerator sessionId={sessionId} />
-              </div>
+              {showForm ? (
+                <SessionForm />
+              ) : (
+                <>
+                  <h2 className="font-semibold text-4xl text-blueGray-600">
+                    Welcome to Atten:D
+                  </h2>
+                  <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                    Please click on the button below to generate a QR code for this session.
+                  </p>
+                  <div className="mt-12">
+                    <button
+                      onClick={handleGetStartedClick}
+                      className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                    >
+                      Get started
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
