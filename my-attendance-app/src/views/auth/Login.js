@@ -30,18 +30,18 @@ export default function Login() {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
-                    type="button"
-                  >
-                    <i className="fab fa-github mr-2"></i>
-                    Github
-                  </button>
-                  <button
-                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
+                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-1 mb-1 hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
                     type="button"
                   >
                     <i className="fab fa-google mr-2"></i>
                     Google
+                  </button>
+                  <button
+                    className="bg-blueGray-800 text-white active:bg-emerald-200 px-6 py-2 rounded outline-none focus:outline-none mr-2 mb-1 hover:text-emerald-200 inline-flex items-center font-normal text-lg ease-linear transition-all duration-250"
+                    type="button"
+                  >
+                    <i className="fab fa-github mr-2"></i>
+                    Github
                   </button>
                 </div>
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -90,9 +90,9 @@ export default function Login() {
                       <input
                         id="customCheckLogin"
                         type="checkbox"
-                        className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                        className="form-checkbox border-0 rounded text-blueGray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                       />
-                      <span className="ml-2 text-sm font-semibold text-blueGray-600">
+                      <span className="ml-2 text-sm font-normal text-blueGray-600">
                         Remember me
                       </span>
                     </label>

@@ -31,7 +31,7 @@ export default function Register() {
             <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blueGray-200">
               <div className="text-center w-full mt-5">
                 <h6 className="text-blueGray-600 text-md mb-3 font-normal">
-                  Please log in with credentials
+                  Already have account?
                 </h6>
                 <div className="flex justify-center">
                   <Link
@@ -139,7 +139,7 @@ export default function Register() {
                         type="checkbox"
                         className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                       />
-                      <span className="ml-2 text-sm font-semibold text-blueGray-600">
+                      <span className="ml-2 text-sm font-Normal text-blueGray-600">
                         I agree with the{" "}
                         <a
                           href="#pablo"
