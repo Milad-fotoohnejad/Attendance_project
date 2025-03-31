@@ -1,6 +1,6 @@
 // src/views/auth/Register.js
 import React, { useState } from "react";
-import { signUp } from "../../auth";
+import { signUp } from "../../firebase/auth";
 import { Link } from "react-router-dom";
 
 export default function Register() {
@@ -46,7 +46,7 @@ export default function Register() {
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-center mb-4">
                   <h6 className="text-blueGray-600 text-md mb-3 font-normal">
-                    Or <br/> Please sign up here using credentials
+                    Or <br /> Please sign up here using credentials
                   </h6>
                 </div>
                 <form onSubmit={handleSignUp}>
@@ -54,8 +54,7 @@ export default function Register() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -69,8 +68,7 @@ export default function Register() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -80,13 +78,11 @@ export default function Register() {
                     />
                   </div>
 
-
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-first-name"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -102,8 +98,7 @@ export default function Register() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-last-name"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -119,8 +114,7 @@ export default function Register() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-address"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-600 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"

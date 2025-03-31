@@ -1,5 +1,4 @@
-// src/auth.js
-import { auth, db } from "./firebaseConfig";
+import { auth, db } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,7 +6,6 @@ import {
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-// Sign up new users
 export const signUp = async (email, password, role, userData) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
@@ -17,10 +15,14 @@ export const signUp = async (email, password, role, userData) => {
     );
     const user = userCredential.user;
 
-    // Store user data in Firestore
-    await setDoc(doc(db, role, user.uid), {
+    // Save user data in /users collection
+    await setDoc(doc(db, "users", user.uid), {
       ...userData,
       email: user.email,
+      role,
+      enrolledClassIds: role === "student" ? [] : undefined,
+      teachingClassIds: role === "instructor" ? [] : undefined,
+      createdAt: new Date().toISOString(),
     });
 
     return user;
@@ -30,7 +32,6 @@ export const signUp = async (email, password, role, userData) => {
   }
 };
 
-// Sign in existing users
 export const signIn = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -45,7 +46,6 @@ export const signIn = async (email, password) => {
   }
 };
 
-// Sign out users
 export const logOut = async () => {
   try {
     await signOut(auth);

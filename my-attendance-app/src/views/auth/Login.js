@@ -1,7 +1,7 @@
 // src/views/auth/Login.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { signIn } from "../../auth";
+import { signIn } from "../../firebase/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -60,8 +60,7 @@ export default function Login() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -75,8 +74,7 @@ export default function Login() {
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
-                    >
-                    </label>
+                    ></label>
                     <input
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
