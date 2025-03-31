@@ -5,7 +5,7 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebaseConfig";
 
 // Create a new class
 export async function createClass(name, code, semester, instructorId) {

@@ -1,5 +1,5 @@
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebaseConfig";
 
 // Record a student's attendance
 export async function markAttendance(sessionId, studentId, status = "present") {
