@@ -15,15 +15,23 @@ export const signUp = async (email, password, role, userData) => {
     );
     const user = userCredential.user;
 
-    // Save user data in /users collection
-    await setDoc(doc(db, "users", user.uid), {
+    // Build the user document dynamically to avoid undefined fields
+    const userDoc = {
       ...userData,
       email: user.email,
       role,
-      enrolledClassIds: role === "student" ? [] : undefined,
-      teachingClassIds: role === "instructor" ? [] : undefined,
       createdAt: new Date().toISOString(),
-    });
+    };
+
+    if (role === "student") {
+      userDoc.enrolledClassIds = [];
+    }
+
+    if (role === "instructor") {
+      userDoc.teachingClassIds = [];
+    }
+
+    await setDoc(doc(db, "users", user.uid), userDoc);
 
     return user;
   } catch (error) {

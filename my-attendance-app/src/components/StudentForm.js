@@ -1,69 +1,124 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { db } from "../firebaseConfig";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { markAttendance } from "../firebase/attendance";
 
-const StudentForm = ({ match }) => {
-  const { sessionId } = match.params;
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+const StudentForm = () => {
+  const location = useLocation();
+  const [sessionToken, setSessionToken] = useState("");
+  const [sessionId, setSessionId] = useState(null);
+  const [studentInfo, setStudentInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    studentNumber: "",
+  });
 
   useEffect(() => {
-    console.log(`Session ID: ${sessionId}`);
-  }, [sessionId]);
+    const params = new URLSearchParams(location.search);
+    const token = params.get("token");
+    setSessionToken(token);
+
+    const fetchSessionId = async () => {
+      try {
+        const q = query(
+          collection(db, "sessions"),
+          where("qrCodeToken", "==", token)
+        );
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          const sessionDoc = querySnapshot.docs[0];
+          setSessionId(sessionDoc.id);
+        } else {
+          console.error("Session not found");
+        }
+      } catch (error) {
+        console.error("Error fetching session:", error);
+      }
+    };
+
+    if (token) fetchSessionId();
+  }, [location.search]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!sessionId) return alert("Session not found!");
+
     try {
-      const timestamp = new Date().toLocaleString();
-      const student = {
-        firstName,
-        lastName,
-        email,
-        timestamp,
-      };
-
-      const studentId = `${lastName.toUpperCase()}, ${firstName}`;
-
-      const sessionRef = doc(db, "sessions", sessionId);
-      await updateDoc(sessionRef, {
-        students: arrayUnion({ id: studentId, ...student }),
+      await markAttendance(sessionId, null, "present", {
+        ...studentInfo,
+        timestamp: new Date().toISOString(),
       });
 
-      console.log("Student added successfully");
+      alert("Attendance submitted!");
+      setStudentInfo({
+        firstName: "",
+        lastName: "",
+        email: "",
+        studentNumber: "",
+      });
     } catch (error) {
-      console.error("Error adding student: ", error);
+      console.error("Error marking attendance:", error);
     }
   };
 
   return (
-    <div>
-      <h1>Register Attendance for Session: {sessionId}</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
-          required
-        />
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <p>If you see this message, the component is rendering correctly.</p>
+    <div className="p-4">
+      <h2 className="text-xl font-semibold mb-4">
+        {sessionId ? "Mark Your Attendance" : "Loading session..."}
+      </h2>
+      {sessionId && (
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="First Name"
+            value={studentInfo.firstName}
+            onChange={(e) =>
+              setStudentInfo({ ...studentInfo, firstName: e.target.value })
+            }
+            required
+            className="w-full border px-3 py-2 rounded"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={studentInfo.lastName}
+            onChange={(e) =>
+              setStudentInfo({ ...studentInfo, lastName: e.target.value })
+            }
+            required
+            className="w-full border px-3 py-2 rounded"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={studentInfo.email}
+            onChange={(e) =>
+              setStudentInfo({ ...studentInfo, email: e.target.value })
+            }
+            required
+            className="w-full border px-3 py-2 rounded"
+          />
+          <input
+            type="text"
+            placeholder="Student Number"
+            value={studentInfo.studentNumber}
+            onChange={(e) =>
+              setStudentInfo({ ...studentInfo, studentNumber: e.target.value })
+            }
+            required
+            className="w-full border px-3 py-2 rounded"
+          />
+          <button
+            type="submit"
+            className="bg-blueGray-800 text-white hover:text-emerald-200 px-4 py-2 rounded"
+          >
+            Submit Attendance
+          </button>
+        </form>
+      )}
     </div>
   );
 };
